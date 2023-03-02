@@ -9,7 +9,6 @@ public class AnimalBase : MonoBehaviour
     public float hungry = 100;
     public int hungryminuseachsecond = 1;
     public int child = 1;
-    
 
     public virtual void Initialsetting()
     {
@@ -27,10 +26,7 @@ public class AnimalBase : MonoBehaviour
         }
     }
 
-    public void getobjectpositon()
-    {
-        
-    }
+   
 
     // Start is called before the first frame update
     void Start()
