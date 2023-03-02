@@ -9,7 +9,7 @@ public class AnimalBase : MonoBehaviour
     public float hungry = 100;
     public float hungryminuseachsecond = 1;
     public int child = 1;
-    public float fooddistance = 100;
+    public float maxfooddistance = 100;
     public string foodtag;
 
     public virtual void Initialsetting()
