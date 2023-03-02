@@ -47,7 +47,6 @@ public class cow : AnimalBase
         if (hungry < 10)
         {
             getobjectpositon();
-            mAnimator.SetBool("isEating", true);
         }
         
     }
