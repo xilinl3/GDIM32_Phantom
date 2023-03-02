@@ -26,7 +26,7 @@ public class cow : AnimalBase
         foodtag = "coweat";
     }
 
-    public void getobjectpositon(string ftag)
+    public void findnearestfood(string ftag)
     {
         GameObject[] gs = GameObject.FindGameObjectsWithTag(ftag);
         foreach (GameObject g3 in gs)
@@ -66,7 +66,7 @@ public class cow : AnimalBase
         gethungry();
         if (hungry < 10)
         {
-           getobjectpositon(foodtag);
+            findnearestfood(foodtag);
         }
         
     }
