@@ -15,36 +15,42 @@ public class cow : AnimalBase
     private Animator mAnimator;
     private Vector3 temppos;
     private Vector3 resultpos;
-    private float distance = 100;
     
     void Initialsetting()
     {
         health = 100;
         hungry = 20;
-        hungryminuseachsecond = 10;
+        hungryminuseachsecond = 0.5f;
         agent = this.GetComponent<NavMeshAgent>();
-        mAnimator = GetComponent<Animator>();   
+        mAnimator = GetComponent<Animator>();
+        foodtag = "coweat";
     }
 
-    public void getobjectpositon()
+    public void getobjectpositon(string ftag)
     {
-        GameObject[] gs = GameObject.FindGameObjectsWithTag("coweat");
-        GameObject food;
+        GameObject[] gs = GameObject.FindGameObjectsWithTag(ftag);
         foreach (GameObject g3 in gs)
         {
             temppos = g3.transform.position;
-            UnityEngine.Debug.Log(temppos);
-            //put cowhere in line37 if change class to scriptable 
+            UnityEngine.Debug.Log(temppos); 
             float comparedistance = Vector3.Distance(transform.position, temppos);
-            if (comparedistance < distance)
+            if (comparedistance < fooddistance)
             {
-                distance = comparedistance;
+                fooddistance = comparedistance;
                 resultpos = temppos;
             }
         }
         mAnimator.SetBool("isWalking", true);
         agent.SetDestination(resultpos);
+    }
 
+    void eatfood()
+    {
+        
+    }
+
+    public void generate()
+    {
     }
 
     // Start is called before the first frame update
@@ -60,7 +66,7 @@ public class cow : AnimalBase
         gethungry();
         if (hungry < 10)
         {
-           getobjectpositon();
+           getobjectpositon(foodtag);
         }
         
     }

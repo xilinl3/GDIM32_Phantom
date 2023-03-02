@@ -7,14 +7,24 @@ public class AnimalBase : MonoBehaviour
 {
     public float health = 100;
     public float hungry = 100;
-    public int hungryminuseachsecond = 1;
+    public float hungryminuseachsecond = 1;
     public int child = 1;
+    public float fooddistance = 100;
+    public string foodtag;
 
     public virtual void Initialsetting()
     {
     }
 
     public virtual void getnew()
+    { 
+    }
+
+    public virtual void eatfood() 
+    { 
+    }
+
+    public virtual void generate()
     { 
     }
 
@@ -25,8 +35,6 @@ public class AnimalBase : MonoBehaviour
             hungry -= hungryminuseachsecond * Time.deltaTime;
         }
     }
-
-   
 
     // Start is called before the first frame update
     void Start()
