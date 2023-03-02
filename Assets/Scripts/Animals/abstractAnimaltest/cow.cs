@@ -34,9 +34,9 @@ public class cow : AnimalBase
             temppos = g3.transform.position;
             UnityEngine.Debug.Log(temppos); 
             float comparedistance = Vector3.Distance(transform.position, temppos);
-            if (comparedistance < fooddistance)
+            if (comparedistance < maxfooddistance)
             {
-                fooddistance = comparedistance;
+                maxfooddistance = comparedistance;
                 resultpos = temppos;
             }
         }
