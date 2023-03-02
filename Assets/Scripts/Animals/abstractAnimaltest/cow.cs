@@ -10,12 +10,12 @@ using UnityEngine.AI;
 
 public class cow : AnimalBase
 {
-    public Transform putcowhere;
+    //public Transform putcowhere;
     private NavMeshAgent agent;
     private Animator mAnimator;
     private Vector3 temppos;
     private Vector3 resultpos;
-    private float distance = 80;
+    private float distance = 100;
     
     void Initialsetting()
     {
