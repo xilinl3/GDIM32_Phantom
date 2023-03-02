@@ -10,9 +10,12 @@ using UnityEngine.AI;
 
 public class cow : AnimalBase
 {
+    public Transform putcowhere;
     private NavMeshAgent agent;
     private Animator mAnimator;
     private Vector3 temppos;
+    private Vector3 resultpos;
+    private float distance = 80;
     
     void Initialsetting()
     {
@@ -20,26 +23,27 @@ public class cow : AnimalBase
         hungry = 20;
         hungryminuseachsecond = 10;
         agent = this.GetComponent<NavMeshAgent>();
-        mAnimator = GetComponent<Animator>();
-        
-        
+        mAnimator = GetComponent<Animator>();   
     }
 
     public void getobjectpositon()
     {
         GameObject[] gs = GameObject.FindGameObjectsWithTag("coweat");
+        GameObject food;
         foreach (GameObject g3 in gs)
         {
             temppos = g3.transform.position;
             UnityEngine.Debug.Log(temppos);
-            
-            //Vector3 direction = g3 - transform.position;
-            //UnityEngine.Debug.DrawRay(transform.position, direction, color.grenn);
-            mAnimator.SetBool("isWalking", true);
-            agent.SetDestination(temppos);
+            //put cowhere in line37 if change class to scriptable 
+            float comparedistance = Vector3.Distance(transform.position, temppos);
+            if (comparedistance < distance)
+            {
+                distance = comparedistance;
+                resultpos = temppos;
+            }
         }
-        
-        //List<GameObject> gs2 = GameObject.FindGameObjectsWithTag("coweat").ToList();
+        mAnimator.SetBool("isWalking", true);
+        agent.SetDestination(resultpos);
 
     }
 
