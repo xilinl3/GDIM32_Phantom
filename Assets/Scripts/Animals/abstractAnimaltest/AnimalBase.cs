@@ -12,20 +12,16 @@ public class AnimalBase : MonoBehaviour
     public float maxfooddistance = 100;
     public string foodtag;
 
-    public virtual void Initialsetting()
+    public virtual void InitialSetting()
     {
     }
 
-    public virtual void getnew()
-    { 
-    }
-
-    public virtual void eatfood() 
-    { 
-    }
-
-    public virtual void generate()
-    { 
+    public void CheckHunger()
+    {
+        if (hungry <= 0)
+        {
+            health -= 1f;
+        }
     }
 
     public void gethungry()
@@ -39,7 +35,7 @@ public class AnimalBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
